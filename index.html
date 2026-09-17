@@ -1,97 +1,80 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>coder-app-name</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Vidi - Find Your Perfect Tutor</title>
+    <meta name="description" content="Nepal's #1 tuition matching platform. Connect with verified local tutors for personalized learning." />
+    <meta name="theme-color" content="#DC143C" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-      /* 内联样式确保主题色立即生效，避免闪烁 */
-      html,
-      body {
+      html, body {
         margin: 0;
         padding: 0;
         width: 100%;
         height: 100%;
+        background-color: #FFF8F0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       }
-      html.light,
-      html.light body {
-        background-color: #ffffff !important;
-        color: #000000;
+      /* Loading screen before React mounts */
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #FFF8F0;
+        z-index: 9999;
+        transition: opacity 0.3s;
       }
-      html.dark,
-      html.dark body {
-        background-color: #1a1a1a !important;
-        color: #ffffff;
+      #initial-loader.hidden { opacity: 0; pointer-events: none; }
+      .loader-panda {
+        width: 80px;
+        height: 80px;
+        animation: bounce 1s ease-in-out infinite;
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
       }
     </style>
-    <script>
-      // 在 React 加载前立即设置主题，避免闪烁
-      (function () {
-        const isInIframe = window.self !== window.top;
-
-        function applyThemeToDOM(theme) {
-          document.documentElement.classList.remove("light", "dark");
-          document.documentElement.classList.add(theme);
-          document.documentElement.setAttribute("data-theme", theme);
-        }
-
-        if (isInIframe) {
-          // 监听父窗口主动推送的主题消息
-          window.addEventListener("message", function (event) {
-            if (event.data && typeof event.data.theme === "string") {
-              const theme = event.data.theme;
-              if (theme === "light" || theme === "dark") {
-                applyThemeToDOM(theme);
-              }
-            }
-          });
-        } else {
-          // 非 iframe 环境，使用默认 light 主题
-          applyThemeToDOM("light");
-        }
-      })();
-    </script>
-      <script>
-      (function () {
-        if (window.self === window.top) return;
-        var reported = {};
-        window.addEventListener("error", function (event) {
-          // 资源加载失败的 error 事件没有 message，此处仅上报 JS 运行时错误
-          if (!event || !event.message) return;
-          var key =
-            event.message + "|" + (event.filename || "") + "|" + (event.lineno || 0);
-          if (reported[key]) return; // 相同错误只上报一次，避免渲染循环刷屏
-          reported[key] = true;
-          try {
-            window.parent.postMessage(
-              {
-                type: "sandbox-runtime-error",
-                payload: {
-                  message: String(event.message).slice(0, 500),
-                  filename: event.filename || "",
-                  lineno: event.lineno || 0,
-                  colno: event.colno || 0,
-                  stack:
-                    event.error && event.error.stack
-                      ? String(event.error.stack).slice(0, 2000)
-                      : ""
-                }
-              },
-              "*"
-            );
-          } catch (e) {
-            /* 上报失败不影响页面运行 */
-          }
-        });
-      })();
-    </script>
   </head>
   <body>
+    <div id="initial-loader">
+      <svg class="loader-panda" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="60" cy="72" rx="28" ry="22" fill="#C85A2A"/>
+        <ellipse cx="60" cy="76" rx="18" ry="14" fill="#8B3A1A"/>
+        <circle cx="60" cy="42" r="20" fill="#C85A2A"/>
+        <ellipse cx="60" cy="46" rx="14" ry="10" fill="#FFF5EE"/>
+        <circle cx="53" cy="42" r="3.5" fill="#1A1A2E"/>
+        <circle cx="67" cy="42" r="3.5" fill="#1A1A2E"/>
+        <circle cx="54" cy="41" r="1.2" fill="white"/>
+        <circle cx="68" cy="41" r="1.2" fill="white"/>
+        <ellipse cx="60" cy="48" rx="3" ry="2" fill="#1A1A2E"/>
+        <circle cx="44" cy="28" r="8" fill="#C85A2A"/>
+        <circle cx="44" cy="28" r="5" fill="#FFB6A3"/>
+        <circle cx="76" cy="28" r="8" fill="#C85A2A"/>
+        <circle cx="76" cy="28" r="5" fill="#FFB6A3"/>
+        <path d="M88 72 Q100 60 95 50 Q92 44 88 48" stroke="#C85A2A" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <ellipse cx="45" cy="88" rx="7" ry="5" fill="#8B3A1A"/>
+        <ellipse cx="75" cy="88" rx="7" ry="5" fill="#8B3A1A"/>
+      </svg>
+    </div>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Hide initial loader once React mounts
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          var loader = document.getElementById('initial-loader');
+          if (loader) loader.classList.add('hidden');
+          setTimeout(function() { if (loader) loader.remove(); }, 300);
+        }, 500);
+      });
+    </script>
   </body>
 </html>
