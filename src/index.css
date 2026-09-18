@@ -100,7 +100,8 @@ body {
 
 /* Mobile-first container */
 .mobile-container {
-  max-width: 430px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
   position: relative;
@@ -189,7 +190,7 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 430px;
+  max-width: 1200px;
   width: 100%;
   background: white;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
