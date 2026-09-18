@@ -13,7 +13,7 @@ export default function StudentDashboard() {
   const upcomingBookings = bookings.filter(b => b.status === 'upcoming');
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream pb-24">
       {/* Header */}
       <div className="bg-gradient-to-br from-crimson to-crimson-dark px-6 pt-6 pb-8 rounded-b-3xl page-header" style={{background: 'linear-gradient(to bottom right, #DC143C, #B01030)', borderRadius: '0 0 2rem 2rem'}}>
         <div className="flex items-center justify-between mb-4">

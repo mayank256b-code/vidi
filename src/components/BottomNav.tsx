@@ -15,11 +15,6 @@ export default function BottomNav({ userRole }: BottomNavProps) {
   if (hideOnPaths.some(path => location.pathname.startsWith(path))) {
     return null;
   }
-  
-  // Hide on chat detail view (has its own back button)
-  if (location.pathname === '/chat' && location.search) {
-    return null;
-  }
 
   const getNavItems = () => {
     if (userRole === 'student') {
