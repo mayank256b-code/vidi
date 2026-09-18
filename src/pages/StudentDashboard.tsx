@@ -8,7 +8,6 @@ import { tutors, bookings } from '../data/mockData';
 export default function StudentDashboard() {
   const { t, toggleLanguage, language } = useApp();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState('home');
 
   const topTutors = tutors.filter(t => t.rating >= 4.7).slice(0, 3);
   const upcomingBookings = bookings.filter(b => b.status === 'upcoming');
@@ -187,33 +186,6 @@ export default function StudentDashboard() {
                 <action.icon className="w-5 h-5" />
               </div>
               <span className="text-xs font-medium text-text-primary">{action.label}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Bottom Navigation */}
-      <div className="bottom-nav">
-        <div className="flex items-center justify-around px-4">
-          {[
-            { icon: 'fa-house', label: t('home'), id: 'home', path: '/student' },
-            { icon: 'fa-magnifying-glass', label: t('search'), id: 'search', path: '/search' },
-            { icon: 'fa-calendar', label: t('bookings'), id: 'bookings', path: '/bookings' },
-            { icon: 'fa-comment', label: t('messages'), id: 'messages', path: '/chat' },
-            { icon: 'fa-user', label: t('profile'), id: 'profile', path: '/profile' },
-          ].map(item => (
-            <button
-              key={item.id}
-              onClick={() => {
-                setActiveTab(item.id);
-                navigate(item.path);
-              }}
-              className={`flex flex-col items-center gap-1 py-2 px-3 ${
-                activeTab === item.id ? 'text-crimson' : 'text-gray-400'
-              }`}
-            >
-              <i className={`fa-solid ${item.icon} text-lg`} />
-              <span className="text-[10px] font-medium">{item.label}</span>
             </button>
           ))}
         </div>

@@ -8,7 +8,6 @@ import { bookings } from '../data/mockData';
 export default function TeacherDashboard() {
   const { t, toggleLanguage, language } = useApp();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState('home');
 
   const todaySessions = bookings.filter(b => b.status === 'upcoming').slice(0, 2);
   const stats = {
@@ -176,33 +175,6 @@ export default function TeacherDashboard() {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Bottom Navigation */}
-      <div className="bottom-nav">
-        <div className="flex items-center justify-around px-4">
-          {[
-            { icon: 'fa-house', label: t('home'), id: 'home' },
-            { icon: 'fa-calendar', label: 'Schedule', id: 'schedule' },
-            { icon: 'fa-users', label: 'Students', id: 'students' },
-            { icon: 'fa-comment', label: t('messages'), id: 'messages', path: '/chat' },
-            { icon: 'fa-user', label: t('profile'), id: 'profile' },
-          ].map(item => (
-            <button
-              key={item.id}
-              onClick={() => {
-                setActiveTab(item.id);
-                if (item.path) navigate(item.path);
-              }}
-              className={`flex flex-col items-center gap-1 py-2 px-3 ${
-                activeTab === item.id ? 'text-nepal-blue' : 'text-gray-400'
-              }`}
-            >
-              <i className={`fa-solid ${item.icon} text-lg`} />
-              <span className="text-[10px] font-medium">{item.label}</span>
-            </button>
-          ))}
         </div>
       </div>
     </div>
