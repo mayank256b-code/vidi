@@ -56,7 +56,7 @@ export default function Chat() {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 pb-24">
+        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 pb-28">
           {messages.map((msg, idx) => (
             <motion.div
               key={msg.id}
@@ -80,7 +80,7 @@ export default function Chat() {
         </div>
 
         {/* Input */}
-        <div className="bg-white px-4 py-3 flex items-center gap-3 border-t border-gray-100 pb-10">
+        <div className="bg-white px-4 py-3 flex items-center gap-3 border-t border-gray-100 pb-12">
           <button className="p-2 text-text-secondary">
             <i className="fa-solid fa-paperclip" />
           </button>
@@ -90,12 +90,12 @@ export default function Chat() {
             onChange={e => setMessageInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && handleSend()}
             placeholder={t('typeMessage')}
-            className="flex-1 py-2.5 px-4 bg-warm-gray rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-crimson/20 mb-2"
+            className="flex-1 py-3 px-4 bg-warm-gray rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-crimson/20"
           />
           <button
             onClick={handleSend}
             disabled={!messageInput.trim()}
-            className="w-10 h-10 rounded-full bg-crimson flex items-center justify-center disabled:opacity-50 mb-2"
+            className="w-10 h-10 rounded-full bg-crimson flex items-center justify-center disabled:opacity-50"
           >
             <Send className="w-4 h-4 text-white" />
           </button>

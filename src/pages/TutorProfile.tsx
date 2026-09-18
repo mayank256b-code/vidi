@@ -49,7 +49,7 @@ export default function TutorProfile() {
   const timeSlots = ['4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM'];
 
   return (
-    <div className="min-h-screen bg-cream pb-24">
+    <div className="min-h-screen bg-cream pb-28">
       {/* Header */}
       <div className="relative bg-gradient-to-br from-crimson to-nepal-blue px-6 pt-6 pb-10">
         <button onClick={() => navigate(-1)} className="absolute top-6 left-4 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">

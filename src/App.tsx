@@ -54,7 +54,9 @@ function AppContent() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
-      <BottomNav userRole={user?.role || null} />
+      <div className="bottom-nav-wrapper">
+        <BottomNav userRole={user?.role || null} />
+      </div>
     </>
   );
 }

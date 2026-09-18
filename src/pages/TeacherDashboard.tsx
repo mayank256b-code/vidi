@@ -19,7 +19,7 @@ export default function TeacherDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream pb-24">
       {/* Header */}
       <div className="bg-gradient-to-br from-nepal-blue to-nepal-blue-dark px-6 pt-6 pb-8 rounded-b-3xl page-header" style={{background: 'linear-gradient(to bottom right, #003893, #002266)', borderRadius: '0 0 2rem 2rem'}}>
         <div className="flex items-center justify-between mb-4">
