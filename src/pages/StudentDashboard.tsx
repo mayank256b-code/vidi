@@ -13,9 +13,9 @@ export default function StudentDashboard() {
   const upcomingBookings = bookings.filter(b => b.status === 'upcoming');
 
   return (
-    <div className="min-h-screen bg-cream pb-20">
+    <div className="min-h-screen bg-cream">
       {/* Header */}
-      <div className="bg-gradient-to-br from-crimson to-crimson-dark px-6 pt-6 pb-8 rounded-b-3xl">
+      <div className="bg-gradient-to-br from-crimson to-crimson-dark px-6 pt-6 pb-8 rounded-b-3xl page-header" style={{background: 'linear-gradient(to bottom right, #DC143C, #B01030)', borderRadius: '0 0 2rem 2rem'}}>
         <div className="flex items-center justify-between mb-4">
           <div>
             <p className="text-white/70 text-xs">Namaste!</p>
@@ -61,8 +61,10 @@ export default function StudentDashboard() {
         </div>
       </div>
 
-      {/* Upcoming Sessions */}
-      <div className="px-6 mt-6">
+      {/* Content */}
+      <div className="page-content">
+        {/* Upcoming Sessions */}
+        <div className="px-6 mt-6">
         <div className="flex items-center justify-between mb-3">
           <h2 className="font-bold text-text-primary">{t('upcomingSessions')}</h2>
           <button className="text-xs text-crimson font-medium">{t('bookings')} &rarr;</button>
@@ -168,7 +170,7 @@ export default function StudentDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="px-6 mt-6">
+      <div className="px-6 mt-6 mb-8">
         <h2 className="font-bold text-text-primary mb-3">Quick Actions</h2>
         <div className="grid grid-cols-4 gap-3">
           {[
@@ -188,6 +190,7 @@ export default function StudentDashboard() {
               <span className="text-xs font-medium text-text-primary">{action.label}</span>
             </button>
           ))}
+        </div>
         </div>
       </div>
     </div>

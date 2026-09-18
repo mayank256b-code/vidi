@@ -11,8 +11,8 @@ export default function BottomNav({ userRole }: BottomNavProps) {
   const { t } = useApp();
   
   // Hide bottom nav on landing, login, admin, and tutor profile pages
-  const hideOnPaths = ['/', '/login', '/admin'];
-  if (hideOnPaths.includes(location.pathname)) {
+  const hideOnPaths = ['/', '/login', '/admin', '/tutor'];
+  if (hideOnPaths.some(path => location.pathname.startsWith(path))) {
     return null;
   }
   

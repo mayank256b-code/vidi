@@ -195,7 +195,20 @@ body {
   background: white;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding: 8px 0 env(safe-area-inset-bottom, 8px);
-  z-index: 50;
+  z-index: 40;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Page header style for consistency */
+.page-header {
+  background: white;
+  padding: 1.5rem 1.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Content wrapper with proper padding for bottom nav */
+.page-content {
+  padding-bottom: 100px;
 }
 
 /* Chat bubble styles */

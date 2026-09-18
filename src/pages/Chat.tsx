@@ -56,7 +56,7 @@ export default function Chat() {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 pb-24">
           {messages.map((msg, idx) => (
             <motion.div
               key={msg.id}
@@ -80,7 +80,7 @@ export default function Chat() {
         </div>
 
         {/* Input */}
-        <div className="bg-white px-4 py-3 flex items-center gap-3 border-t border-gray-100">
+        <div className="bg-white px-4 py-3 flex items-center gap-3 border-t border-gray-100 pb-10">
           <button className="p-2 text-text-secondary">
             <i className="fa-solid fa-paperclip" />
           </button>
@@ -90,12 +90,12 @@ export default function Chat() {
             onChange={e => setMessageInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && handleSend()}
             placeholder={t('typeMessage')}
-            className="flex-1 py-2.5 px-4 bg-warm-gray rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-crimson/20"
+            className="flex-1 py-2.5 px-4 bg-warm-gray rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-crimson/20 mb-2"
           />
           <button
             onClick={handleSend}
             disabled={!messageInput.trim()}
-            className="w-10 h-10 rounded-full bg-crimson flex items-center justify-center disabled:opacity-50"
+            className="w-10 h-10 rounded-full bg-crimson flex items-center justify-center disabled:opacity-50 mb-2"
           >
             <Send className="w-4 h-4 text-white" />
           </button>
@@ -105,10 +105,10 @@ export default function Chat() {
   }
 
   return (
-    <div className="min-h-screen bg-cream pb-20">
+    <div className="min-h-screen bg-cream">
       {/* Header */}
-      <div className="bg-white px-6 pt-6 pb-4 shadow-sm">
-        <div className="flex items-center justify-between">
+      <div className="bg-white px-6 pt-6 pb-4 shadow-sm page-header">
+        <div className="flex items-center justify-between mb-3">
           <h1 className="text-xl font-bold text-text-primary">{t('messages')}</h1>
           <div className="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center">
             <span className="text-xs font-bold text-crimson">
@@ -119,7 +119,7 @@ export default function Chat() {
       </div>
 
       {/* Chat List */}
-      <div className="px-4 py-3 space-y-2">
+      <div className="px-4 py-3 space-y-2 page-content">
         {chatThreads.map((thread, idx) => (
           <motion.button
             key={thread.id}
