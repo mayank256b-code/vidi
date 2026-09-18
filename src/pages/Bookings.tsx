@@ -16,9 +16,9 @@ export default function Bookings() {
   const displayBookings = activeTab === 'upcoming' ? upcomingBookings : pastBookings;
 
   return (
-    <div className="min-h-screen bg-cream pb-20">
+    <div className="min-h-screen bg-cream">
       {/* Header */}
-      <div className="bg-white px-6 pt-6 pb-4 shadow-sm">
+      <div className="bg-white px-6 pt-6 pb-4 shadow-sm page-header">
         <div className="flex items-center gap-3 mb-4">
           <button onClick={() => navigate(-1)} className="p-2 -ml-2">
             <i className="fa-solid fa-arrow-left text-text-primary" />
@@ -48,7 +48,7 @@ export default function Bookings() {
       </div>
 
       {/* Bookings List */}
-      <div className="px-6 py-4 space-y-3">
+      <div className="px-6 py-4 space-y-3 page-content">
         {displayBookings.length > 0 ? displayBookings.map((booking, idx) => (
           <motion.div
             key={booking.id}

@@ -19,9 +19,9 @@ export default function TeacherDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-cream pb-20">
+    <div className="min-h-screen bg-cream">
       {/* Header */}
-      <div className="bg-gradient-to-br from-nepal-blue to-nepal-blue-dark px-6 pt-6 pb-8 rounded-b-3xl">
+      <div className="bg-gradient-to-br from-nepal-blue to-nepal-blue-dark px-6 pt-6 pb-8 rounded-b-3xl page-header" style={{background: 'linear-gradient(to bottom right, #003893, #002266)', borderRadius: '0 0 2rem 2rem'}}>
         <div className="flex items-center justify-between mb-4">
           <div>
             <p className="text-white/70 text-xs">Welcome back!</p>
@@ -93,6 +93,9 @@ export default function TeacherDashboard() {
         </div>
       </div>
 
+      {/* Content */}
+      <div className="page-content">
+
       {/* Today's Sessions */}
       <div className="px-6 mt-6">
         <div className="flex items-center justify-between mb-3">
@@ -132,7 +135,7 @@ export default function TeacherDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="px-6 mt-6">
+      <div className="px-6 mt-6 mb-8">
         <h2 className="font-bold text-text-primary mb-3">Quick Actions</h2>
         <div className="grid grid-cols-3 gap-3">
           <button onClick={() => navigate('/profile')} className="card p-3 flex flex-col items-center gap-2">
@@ -157,7 +160,7 @@ export default function TeacherDashboard() {
       </div>
 
       {/* Earnings Chart Placeholder */}
-      <div className="px-6 mt-6">
+      <div className="px-6 mt-6 mb-8">
         <div className="card p-4">
           <h3 className="font-semibold text-text-primary text-sm mb-3">Weekly Earnings</h3>
           <div className="flex items-end gap-2 h-24">
@@ -175,6 +178,7 @@ export default function TeacherDashboard() {
               </div>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </div>
