@@ -1,8 +1,8 @@
-```gitignore
+```
 # Dependencies
 node_modules/
 
-# Build outputs
+# Build artifacts
 dist/
 build/
 *.js.map
@@ -13,49 +13,24 @@ build/
 .env.local
 *.env.*
 
-# Logs
-*.log
-
-# IDE files
+# IDE specific
 .vscode/
 .idea/
 *.swp
 *.swo
-*.tmp
-
-# Python cache (if applicable)
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
 
 # OS generated files
 .DS_Store
 Thumbs.db
 
-# Testing
-.mypy_cache/
-.pytest_cache/
-.nyc_output/
+# Logs
+*.log
+
+# Coverage reports
 coverage/
+htmlcov/
+*.coverage
 
-# Runtime data
-.pnp.cjs
-.yarn-integrity
-.lock-wscript
-.npm
-.node_repl_history
-
-# Compiled assets
-public/build/
-assets/css/*.css.map
-assets/js/*.js.map
-
-# Distribution folder
-dist/**
+# Temporary files
+*.tmp
 ```

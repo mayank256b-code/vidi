@@ -9,10 +9,15 @@ export default function BottomNav({ userRole }: BottomNavProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useApp();
+
+  // Fix: Match '/' and '/login' exactly, prefix-match the rest
+  const hiddenExact = ['/', '/login'];
+  const hiddenPrefixes = ['/admin', '/tutor'];
   
-  // Hide bottom nav on landing, login, admin, and tutor profile pages
-  const hideOnPaths = ['/', '/login', '/admin', '/tutor'];
-  if (hideOnPaths.some(path => location.pathname.startsWith(path))) {
+  if (
+    hiddenExact.includes(location.pathname) ||
+    hiddenPrefixes.some(path => location.pathname.startsWith(path))
+  ) {
     return null;
   }
 
@@ -28,8 +33,8 @@ export default function BottomNav({ userRole }: BottomNavProps) {
     } else if (userRole === 'teacher') {
       return [
         { icon: 'fa-house', label: t('home'), id: 'home', path: '/teacher' },
-        { icon: 'fa-calendar', label: 'Schedule', id: 'schedule' },
-        { icon: 'fa-users', label: 'Students', id: 'students' },
+        { icon: 'fa-calendar', label: 'Schedule', id: 'schedule', path: '/bookings' },
+        { icon: 'fa-users', label: 'Students', id: 'students', path: undefined as string | undefined },
         { icon: 'fa-comment', label: t('messages'), id: 'messages', path: '/chat' },
         { icon: 'fa-user', label: t('profile'), id: 'profile', path: '/profile' },
       ];
@@ -47,12 +52,6 @@ export default function BottomNav({ userRole }: BottomNavProps) {
         return item.id;
       }
     }
-    // For teacher dashboard special cases
-    if (userRole === 'teacher') {
-      if (pathname === '/teacher') return 'home';
-      if (pathname.includes('schedule')) return 'schedule';
-      if (pathname.includes('students')) return 'students';
-    }
     return navItems[0]?.id || 'home';
   };
 
@@ -64,7 +63,7 @@ export default function BottomNav({ userRole }: BottomNavProps) {
         {navItems.map(item => {
           const isActive = activeTab === item.id;
           const activeColor = userRole === 'student' ? 'text-crimson' : 'text-nepal-blue';
-          
+
           return (
             <button
               key={item.id}
@@ -73,8 +72,9 @@ export default function BottomNav({ userRole }: BottomNavProps) {
                   navigate(item.path);
                 }
               }}
-              className={`flex flex-col items-center gap-1 py-2 px-3 ${
-                isActive ? activeColor : 'text-gray-400'
+              disabled={!item.path}
+              className={`flex flex-col items-center gap-1 py-2 px-3 rounded-xl transition-colors ${
+                !item.path ? 'text-gray-300 opacity-60' : isActive ? activeColor : 'text-gray-400'
               }`}
             >
               <i className={`fa-solid ${item.icon} text-lg`} />
