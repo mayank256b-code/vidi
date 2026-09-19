@@ -12,7 +12,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream pb-24">
       {/* Header */}
       <div className="bg-gradient-to-br from-crimson to-nepal-blue px-6 pt-8 pb-10 text-center" style={{background: 'linear-gradient(to bottom right, #DC143C, #003893)'}}>
         <div className="w-20 h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center border-3 border-white/40">
@@ -47,7 +47,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Settings Menu */}
-      <div className="px-6 mt-6 space-y-2 page-content">
+      <div className="page-content px-6 mt-6 space-y-2">
         <h3 className="text-xs font-semibold text-text-secondary uppercase tracking-wider mb-3">Settings</h3>
         
         <button 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useApp } from '../contexts/AppContext';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Clock, Video, MapPin, CheckCircle, XCircle, CreditCard } from 'lucide-react';
+import { Calendar, Clock, Video, MapPin, CheckCircle, XCircle, CreditCard, ArrowLeft } from 'lucide-react';
 import { bookings } from '../data/mockData';
 
 export default function Bookings() {
@@ -16,12 +16,12 @@ export default function Bookings() {
   const displayBookings = activeTab === 'upcoming' ? upcomingBookings : pastBookings;
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream pb-24">
       {/* Header */}
       <div className="bg-white px-6 pt-6 pb-4 shadow-sm page-header">
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={() => navigate(-1)} className="p-2 -ml-2">
-            <i className="fa-solid fa-arrow-left text-text-primary" />
+          <button onClick={() => navigate(-1)} className="nav-icon-btn">
+            <ArrowLeft className="w-4 h-4" />
           </button>
           <h1 className="text-xl font-bold text-text-primary">{t('bookings')}</h1>
         </div>

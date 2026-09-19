@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useApp } from '../contexts/AppContext';
 import { useNavigate } from 'react-router-dom';
-import { Phone, Mail, Globe, User, GraduationCap, Shield } from 'lucide-react';
+import { Phone, Mail, Globe, User, GraduationCap, Shield, ArrowLeft } from 'lucide-react';
 
 export default function Login() {
   const { t, login, setShowLoading, toggleLanguage, language } = useApp();
@@ -35,8 +35,8 @@ export default function Login() {
     <div className="min-h-screen bg-cream flex flex-col">
       {/* Top Bar */}
       <div className="flex items-center justify-between px-6 pt-4">
-        <button onClick={() => step === 'login' ? setStep('role') : navigate('/')} className="p-2">
-          <i className="fa-solid fa-arrow-left text-text-primary" />
+        <button onClick={() => step === 'login' ? setStep('role') : navigate('/')} className="nav-icon-btn">
+          <ArrowLeft className="w-4 h-4" />
         </button>
         <button onClick={toggleLanguage} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-gray-200 text-xs font-medium">
           <Globe className="w-3.5 h-3.5 text-nepal-blue" />

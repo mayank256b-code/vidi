@@ -32,9 +32,9 @@ export default function Chat() {
 
   if (selectedThread && thread) {
     return (
-      <div className="min-h-screen bg-cream flex flex-col">
+      <div className="min-h-screen bg-cream flex flex-col pb-24">
         {/* Chat Header */}
-        <div className="bg-white px-4 py-3 flex items-center gap-3 shadow-sm">
+        <div className="bg-white px-4 py-3 flex items-center gap-3 shadow-sm sticky top-0 z-30">
           <button onClick={() => setSelectedThread(null)} className="p-1">
             <ArrowLeft className="w-5 h-5 text-text-primary" />
           </button>
@@ -56,7 +56,7 @@ export default function Chat() {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 pb-28">
+        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
           {messages.map((msg, idx) => (
             <motion.div
               key={msg.id}
@@ -80,7 +80,7 @@ export default function Chat() {
         </div>
 
         {/* Input */}
-        <div className="bg-white px-4 py-3 flex items-center gap-3 border-t border-gray-100 pb-12">
+        <div className="bg-white px-4 py-3 flex items-center gap-3 border-t border-gray-100">
           <button className="p-2 text-text-secondary">
             <i className="fa-solid fa-paperclip" />
           </button>
